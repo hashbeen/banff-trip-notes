@@ -136,15 +136,21 @@
   .toggle-row button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
   .option-block{display:none;}
   .option-block.active{display:block;}
-  .spot{display:flex;gap:12px;padding:10px 0;}
-  .spot .tag{
-    flex-shrink:0;height:22px;padding:0 10px;border-radius:999px;
-    font-size:0.7rem;font-weight:700;display:flex;align-items:center;color:#fff;
+  .spot-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:640px){ .spot-grid{grid-template-columns:1fr;} }
+  .spot-card{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden;}
+  .spot-card img{width:100%;height:150px;object-fit:cover;display:block;background:var(--paper);}
+  .spot-card .body{padding:14px 16px 16px;}
+  .spot-card .tag{
+    display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:999px;
+    font-size:0.68rem;font-weight:700;color:#fff;margin-bottom:8px;
   }
-  .spot .tag.banff{background:var(--blue);}
-  .spot .tag.jasper{background:var(--rust);}
-  .spot .body b{display:block;font-size:0.95rem;}
-  .spot .body p{margin:2px 0 0;color:var(--ink-soft);font-size:0.88rem;}
+  .spot-card .tag.banff{background:var(--blue);}
+  .spot-card .tag.jasper{background:var(--rust);}
+  .spot-card h3{margin:0 0 4px;font-size:0.98rem;}
+  .spot-card p{margin:0 0 10px;color:var(--ink-soft);font-size:0.87rem;}
+  .spot-card a.more{color:var(--blue);font-size:0.85rem;font-weight:600;text-decoration:none;}
+  .spot-card a.more:hover{text-decoration:underline;}
   .area-label{font-weight:700;margin:26px 0 10px;font-size:0.95rem;}
   .area-label:first-child{margin-top:0;}
   .area-label .muted{font-weight:400;color:var(--ink-soft);}
@@ -341,21 +347,51 @@
     <h2>Must-see spots</h2>
 
     <div class="area-label">Banff area</div>
-    <div class="card">
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Gondola / Nightrise</b><p>Ride up Sulphur Mountain; evening light-and-sound winter experience at the top.</p></div></div>
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Upper Hot Springs</b><p>Outdoor mineral hot springs with mountain views — great after a cold day outside. ~$19.75/adult.</p></div></div>
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Johnston Canyon Icewalk</b><p>Frozen waterfalls and ice formations along a canyon trail, ~25 km from Banff. Guided tours include cleats/poles/transport.</p></div></div>
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Christmas Market</b><p>Held at the historic train station — local artisans, hot cocoa, holiday atmosphere.</p></div></div>
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Lake Louise</b><p>Frozen lake, ice skating rink, Chateau Lake Louise. Moraine Lake Rd is closed to cars in winter.</p></div></div>
-      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Rotary Festival of Trees</b><p>Community holiday event with decorated trees, wreaths, gingerbread houses.</p></div></div>
+    <div class="spot-grid">
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Town_of_Banff_viewed_from_Sulphur_Mountain.jpg/330px-Town_of_Banff_viewed_from_Sulphur_Mountain.jpg" alt="View from Sulphur Mountain" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Banff</span><h3>Banff Gondola / Nightrise</h3><p>Ride up Sulphur Mountain; evening light-and-sound winter experience at the top.</p><a class="more" href="https://www.banffjaspercollection.com/attractions/banff-gondola/" target="_blank" rel="noopener">Official site →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Upper_Springs_Bathhouse_from_SE.jpg/330px-Upper_Springs_Bathhouse_from_SE.jpg" alt="Banff Upper Hot Springs" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Banff</span><h3>Banff Upper Hot Springs</h3><p>Outdoor mineral hot springs with mountain views — great after a cold day outside. ~$19.75/adult.</p><a class="more" href="https://en.wikipedia.org/wiki/Banff_Upper_Hot_Springs" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/JohnstonCanyonUpperFalls.jpg/330px-JohnstonCanyonUpperFalls.jpg" alt="Johnston Canyon frozen falls" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Banff</span><h3>Johnston Canyon Icewalk</h3><p>Frozen waterfalls and ice formations along a canyon trail, ~25 km from Banff. Guided tours include cleats/poles/transport.</p><a class="more" href="https://en.wikipedia.org/wiki/Johnston_Creek_(Alberta)" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/RockyMountaineerRailCoach3998.jpg/330px-RockyMountaineerRailCoach3998.jpg" alt="Banff train station" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Banff</span><h3>Banff Christmas Market</h3><p>Held at the historic train station — local artisans, hot cocoa, holiday atmosphere.</p><a class="more" href="https://banffchristmasmarket.com/" target="_blank" rel="noopener">Official site →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Late_in_the_Evening_at_the_Chateau_%2850005960142%29.jpg/330px-Late_in_the_Evening_at_the_Chateau_%2850005960142%29.jpg" alt="Lake Louise and the Chateau" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Banff</span><h3>Lake Louise</h3><p>Frozen lake, ice skating rink, Chateau Lake Louise. Moraine Lake Rd is closed to cars in winter.</p><a class="more" href="https://en.wikipedia.org/wiki/Lake_Louise,_Alberta" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Canmore_from_Lady_MacDonald_Teahouse.jpg/330px-Canmore_from_Lady_MacDonald_Teahouse.jpg" alt="Canmore, home of the Rotary Festival of Trees" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag banff">Canmore</span><h3>Rotary Festival of Trees</h3><p>Community holiday event with decorated trees, wreaths, gingerbread houses — held in nearby Canmore.</p><a class="more" href="https://rotaryclubofcanmore.ca/page/festival-of-trees" target="_blank" rel="noopener">Official site →</a></div>
+      </div>
     </div>
 
     <div class="area-label">Jasper area <span class="muted">(Option 1 only)</span></div>
-    <div class="card">
-      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Maligne Canyon Ice Walk</b><p>Guided walk into a frozen canyon among ice sculptures and mid-flow frozen waterfalls.</p></div></div>
-      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Pyramid / Mildred Lake skating</b><p>Some of the best-maintained outdoor rinks in the Rockies, with mountain backdrops.</p></div></div>
-      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Athabasca & Sunwapta Falls</b><p>Partially frozen waterfalls, easy short stops along the Icefields Parkway.</p></div></div>
-      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Marmot Basin</b><p>Local ski hill if anyone wants a ski/snowboard day.</p></div></div>
+    <div class="spot-grid">
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gazing_down_into_Maligne_Canyon.jpg/330px-Gazing_down_into_Maligne_Canyon.jpg" alt="Maligne Canyon" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag jasper">Jasper</span><h3>Maligne Canyon Ice Walk</h3><p>Guided walk into a frozen canyon among ice sculptures and mid-flow frozen waterfalls.</p><a class="more" href="https://en.wikipedia.org/wiki/Maligne_Canyon" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Pyramid_Lake_Mountain.jpg/330px-Pyramid_Lake_Mountain.jpg" alt="Pyramid Lake, Jasper" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag jasper">Jasper</span><h3>Pyramid / Mildred Lake skating</h3><p>Some of the best-maintained outdoor rinks in the Rockies, with mountain backdrops.</p><a class="more" href="https://en.wikipedia.org/wiki/Pyramid_Lake_(Alberta)" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Athabasca_Falls_-_Jasper.jpg/330px-Athabasca_Falls_-_Jasper.jpg" alt="Athabasca Falls" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag jasper">Jasper</span><h3>Athabasca & Sunwapta Falls</h3><p>Partially frozen waterfalls, easy short stops along the Icefields Parkway.</p><a class="more" href="https://en.wikipedia.org/wiki/Athabasca_Falls" target="_blank" rel="noopener">More info →</a></div>
+      </div>
+      <div class="spot-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Lower_mountain%2C_Marmot_Basin.jpg/250px-Lower_mountain%2C_Marmot_Basin.jpg" alt="Marmot Basin ski slopes" loading="lazy" onerror="this.style.display='none'">
+        <div class="body"><span class="tag jasper">Jasper</span><h3>Marmot Basin</h3><p>Local ski hill if anyone wants a ski/snowboard day.</p><a class="more" href="https://en.wikipedia.org/wiki/Marmot_Basin" target="_blank" rel="noopener">More info →</a></div>
+      </div>
     </div>
   </div>
 
