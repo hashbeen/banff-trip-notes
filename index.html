@@ -111,21 +111,18 @@
   }
   .badge.blue{background:var(--blue-soft);color:var(--blue);}
   .badge.rust{background:var(--rust-soft);color:var(--rust);}
-  .route-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
-  .route-row:last-of-type{border-bottom:none;}
-  .route-row.total{font-weight:700;padding-top:12px;}
+  .route-row{display:flex;justify-content:space-between;padding:6px 0;font-size:0.92rem;}
+  .route-row.total{font-weight:700;padding-top:14px;}
   .route-row span:last-child{color:var(--ink-soft);}
   .route-row.total span:last-child{color:var(--ink);}
   .note{border-radius:10px;padding:14px 16px;font-size:0.9rem;margin-top:10px;}
   .note.peach{background:var(--peach);border:1px solid var(--peach-line);color:#7a4a1e;}
   .note.pink{background:var(--pink);border:1px solid var(--pink-line);color:#8a2e2e;}
   ul.plain{margin:0;padding:0;list-style:none;}
-  ul.plain li{padding:9px 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
-  ul.plain li:last-child{border-bottom:none;}
+  ul.plain li{padding:8px 0;font-size:0.92rem;}
   ul.plain li b{display:block;}
-  .daylist{display:flex;flex-direction:column;gap:0;}
-  .day{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
-  .day:last-child{border-bottom:none;}
+  .daylist{display:flex;flex-direction:column;gap:6px;}
+  .day{display:flex;gap:16px;padding:14px 0;}
   .day .num{color:var(--blue);font-weight:700;font-size:0.8rem;flex-shrink:0;width:56px;}
   .day .content h3{margin-bottom:8px;}
   .day ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:0.92rem;}
@@ -139,8 +136,7 @@
   .toggle-row button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
   .option-block{display:none;}
   .option-block.active{display:block;}
-  .spot{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
-  .spot:last-child{border-bottom:none;}
+  .spot{display:flex;gap:12px;padding:10px 0;}
   .spot .tag{
     flex-shrink:0;height:22px;padding:0 10px;border-radius:999px;
     font-size:0.7rem;font-weight:700;display:flex;align-items:center;color:#fff;
@@ -153,14 +149,12 @@
   .area-label:first-child{margin-top:0;}
   .area-label .muted{font-weight:400;color:var(--ink-soft);}
   .checklist{list-style:none;margin:0;padding:0;}
-  .checklist li{padding:9px 0;border-bottom:1px solid var(--line);font-size:0.92rem;display:flex;gap:10px;}
-  .checklist li:last-child{border-bottom:none;}
+  .checklist li{padding:7px 0;font-size:0.92rem;display:flex;gap:10px;}
   .checklist li::before{content:"☐";color:var(--blue);flex-shrink:0;}
   h4.subhead{font-size:0.95rem;margin:0 0 10px;}
   .calc-block{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;background:var(--panel);}
   .calc-block .title{font-weight:700;margin-bottom:14px;font-size:1rem;}
-  .calc-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:0.9rem;}
-  .calc-row:last-of-type{border-bottom:none;}
+  .calc-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;font-size:0.9rem;}
   .calc-row .label{flex:1;}
   .calc-row .label small{display:block;color:var(--ink-soft);font-size:0.78rem;}
   .calc-row .inputs{display:flex;align-items:center;gap:6px;flex-shrink:0;}
@@ -170,7 +164,7 @@
     background:var(--paper);
   }
   .calc-row .unit{color:var(--ink-soft);font-size:0.82rem;width:56px;}
-  .calc-total{display:flex;justify-content:space-between;font-weight:700;padding-top:12px;margin-top:4px;border-top:1px solid var(--line);}
+  .calc-total{display:flex;justify-content:space-between;font-weight:700;padding-top:10px;margin-top:8px;}
   .grand{
     background:var(--lav);border-radius:14px;padding:20px 22px;
     display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;
@@ -188,7 +182,7 @@
     padding:12px;font-family:inherit;font-size:0.92rem;color:var(--ink);
     background:var(--paper);resize:vertical;
   }
-  footer{text-align:center;color:var(--ink-soft);font-size:0.85rem;padding-top:34px;border-top:1px solid var(--line);margin-top:10px;}
+  footer{text-align:center;color:var(--ink-soft);font-size:0.85rem;padding-top:44px;margin-top:10px;}
 </style>
 </head>
 <body>
