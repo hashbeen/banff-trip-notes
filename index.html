@@ -188,6 +188,7 @@
     padding:6px 8px;font-size:0.88rem;text-align:right;font-family:inherit;
     background:var(--paper);
   }
+  .calc-row input.loc-input{width:88px;text-align:left;}
   .calc-row .unit{color:var(--ink-soft);font-size:0.82rem;width:56px;}
   .calc-total{display:flex;justify-content:space-between;font-weight:600;padding-top:12px;margin-top:10px;}
   .grand{
@@ -426,36 +427,55 @@
       </div>
 
       <div class="calc-block">
-        <div class="title">Lodging</div>
-        <div class="calc-row"><div class="label">Jasper</div>
-          <div class="inputs"><input type="number" id="o1-jnights" value="2"><span class="unit">nights</span>×$<input type="number" id="o1-jprice" value="220"><span class="unit">/night</span></div></div>
-        <div class="calc-row"><div class="label">Banff</div>
-          <div class="inputs"><input type="number" id="o1-bnights" value="3"><span class="unit">nights</span>×$<input type="number" id="o1-bprice" value="300"><span class="unit">/night</span></div></div>
+        <div class="title">Lodging — per night</div>
+        <div class="calc-row"><div class="label">Night 1<small>after Day 1 · Kelowna → Jasper</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o1-n1-loc" value="Jasper">$<input type="number" id="o1-n1-price" value="220"></div></div>
+        <div class="calc-row"><div class="label">Night 2<small>after Day 2 · Jasper</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o1-n2-loc" value="Jasper">$<input type="number" id="o1-n2-price" value="220"></div></div>
+        <div class="calc-row"><div class="label">Night 3<small>after Day 3 · Icefields Pkwy → Banff</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o1-n3-loc" value="Banff">$<input type="number" id="o1-n3-price" value="300"></div></div>
+        <div class="calc-row"><div class="label">Night 4<small>after Day 4 · Banff</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o1-n4-loc" value="Banff">$<input type="number" id="o1-n4-price" value="300"></div></div>
+        <div class="calc-row"><div class="label">Night 5<small>after Day 5 · Banff / Lake Louise</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o1-n5-loc" value="Banff">$<input type="number" id="o1-n5-price" value="300"></div></div>
         <div class="calc-total"><span>Lodging total</span><span id="o1-lodgingtotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Park pass</div>
-        <div class="calc-row"><div class="label">Days in park<small>Group/family day pass covers all 4 in one vehicle</small></div>
-          <div class="inputs"><input type="number" id="o1-parkdays" value="5"><span class="unit">days</span>×$<input type="number" step="0.01" id="o1-parkprice" value="24.50"><span class="unit">/day</span></div></div>
+        <div class="title">Park pass — per day<small style="display:block;font-weight:400;text-transform:none;letter-spacing:0;margin-top:4px;">Group/family day pass covers all 4 in one vehicle</small></div>
+        <div class="calc-row"><div class="label">Day 1<small>Kelowna → Jasper (mostly outside the park)</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d1-price" value="0"></div></div>
+        <div class="calc-row"><div class="label">Day 2<small>Jasper</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d2-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 3<small>Jasper → Banff, Icefields Parkway</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d3-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 4<small>Banff</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d4-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 5<small>Banff / Lake Louise</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d5-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 6<small>Banff → Kelowna</small></div><div class="inputs">$<input type="number" step="0.01" id="o1-d6-price" value="24.50"></div></div>
         <div class="calc-total"><span>Park pass total</span><span id="o1-parktotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Food</div>
-        <div class="calc-row"><div class="label">Per person, per day<small>Mix of groceries + eating out</small></div>
-          <div class="inputs"><input type="number" id="o1-fooddays" value="6"><span class="unit">days</span>×$<input type="number" id="o1-foodperday" value="55"><span class="unit">/day</span></div></div>
+        <div class="title">Food — per person</div>
+        <div class="calc-row"><div class="label">Breakfast<small>Set days to 0 if eating at the Airbnb to save</small></div>
+          <div class="inputs"><input type="number" id="o1-bfast-days" value="6"><span class="unit">days</span>×$<input type="number" id="o1-bfast-price" value="12"><span class="unit">/day</span></div></div>
+        <div class="calc-row"><div class="label">Lunch</div>
+          <div class="inputs"><input type="number" id="o1-lunch-days" value="6"><span class="unit">days</span>×$<input type="number" id="o1-lunch-price" value="18"><span class="unit">/day</span></div></div>
+        <div class="calc-row"><div class="label">Dinner</div>
+          <div class="inputs"><input type="number" id="o1-dinner-days" value="6"><span class="unit">days</span>×$<input type="number" id="o1-dinner-price" value="25"><span class="unit">/day</span></div></div>
         <div class="calc-total"><span>Food total (4 people)</span><span id="o1-foodtotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Activities — per person</div>
-        <div class="calc-row"><div class="label">Maligne Canyon Ice Walk</div><div class="inputs">$<input type="number" id="o1-act1" value="85"></div></div>
-        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o1-act2" value="85"></div></div>
-        <div class="calc-row"><div class="label">Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o1-act3" value="19.75"></div></div>
-        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental, DIY)</div><div class="inputs">$<input type="number" id="o1-act4" value="15"></div></div>
-        <div class="calc-row"><div class="label">Christmas Market snacks/shopping</div><div class="inputs">$<input type="number" id="o1-act5" value="20"></div></div>
-        <div class="calc-total"><span>Activities total (4 people)</span><span id="o1-acttotal">$0</span></div>
+        <div class="title">Entry passes — per person<small style="display:block;font-weight:400;text-transform:none;letter-spacing:0;margin-top:4px;">One row per place from Places to Visit — set to 0 if skipping</small></div>
+        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o1-e1" value="85"></div></div>
+        <div class="calc-row"><div class="label">Banff Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o1-e2" value="19.75"></div></div>
+        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental)</div><div class="inputs">$<input type="number" id="o1-e3" value="15"></div></div>
+        <div class="calc-row"><div class="label">Banff Christmas Market (snacks/shopping)</div><div class="inputs">$<input type="number" id="o1-e4" value="20"></div></div>
+        <div class="calc-row"><div class="label">Lake Louise (skate rental)</div><div class="inputs">$<input type="number" id="o1-e5" value="0"></div></div>
+        <div class="calc-row"><div class="label">Rotary Festival of Trees (Canmore)</div><div class="inputs">$<input type="number" id="o1-e6" value="0"></div></div>
+        <div class="calc-row"><div class="label">Maligne Canyon Ice Walk</div><div class="inputs">$<input type="number" id="o1-e7" value="85"></div></div>
+        <div class="calc-row"><div class="label">Pyramid / Mildred Lake skating (rental)</div><div class="inputs">$<input type="number" id="o1-e8" value="0"></div></div>
+        <div class="calc-row"><div class="label">Athabasca & Sunwapta Falls</div><div class="inputs">$<input type="number" id="o1-e9" value="0"></div></div>
+        <div class="calc-row"><div class="label">Marmot Basin (lift ticket, optional)</div><div class="inputs">$<input type="number" id="o1-e10" value="0"></div></div>
+        <div class="calc-total"><span>Entry passes total (4 people)</span><span id="o1-acttotal">$0</span></div>
       </div>
 
       <div class="grand">
@@ -478,33 +498,48 @@
       </div>
 
       <div class="calc-block">
-        <div class="title">Lodging</div>
-        <div class="calc-row"><div class="label">Banff</div>
-          <div class="inputs"><input type="number" id="o2-bnights" value="4"><span class="unit">nights</span>×$<input type="number" id="o2-bprice" value="300"><span class="unit">/night</span></div></div>
+        <div class="title">Lodging — per night<small style="display:block;font-weight:400;text-transform:none;letter-spacing:0;margin-top:4px;">Edit the place name if a night splits off to Canmore, etc.</small></div>
+        <div class="calc-row"><div class="label">Night 1<small>after Day 1 · Kelowna → Banff</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o2-n1-loc" value="Banff">$<input type="number" id="o2-n1-price" value="300"></div></div>
+        <div class="calc-row"><div class="label">Night 2<small>after Day 2 · Banff</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o2-n2-loc" value="Banff">$<input type="number" id="o2-n2-price" value="300"></div></div>
+        <div class="calc-row"><div class="label">Night 3<small>after Day 3 · Lake Louise</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o2-n3-loc" value="Banff">$<input type="number" id="o2-n3-price" value="300"></div></div>
+        <div class="calc-row"><div class="label">Night 4<small>after Day 4 · Banff flex day</small></div>
+          <div class="inputs"><input type="text" class="loc-input" id="o2-n4-loc" value="Banff">$<input type="number" id="o2-n4-price" value="300"></div></div>
         <div class="calc-total"><span>Lodging total</span><span id="o2-lodgingtotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Park pass</div>
-        <div class="calc-row"><div class="label">Days in park<small>Group/family day pass covers all 4 in one vehicle</small></div>
-          <div class="inputs"><input type="number" id="o2-parkdays" value="4"><span class="unit">days</span>×$<input type="number" step="0.01" id="o2-parkprice" value="24.50"><span class="unit">/day</span></div></div>
+        <div class="title">Park pass — per day<small style="display:block;font-weight:400;text-transform:none;letter-spacing:0;margin-top:4px;">Group/family day pass covers all 4 in one vehicle</small></div>
+        <div class="calc-row"><div class="label">Day 1<small>Kelowna → Banff (mostly outside the park)</small></div><div class="inputs">$<input type="number" step="0.01" id="o2-d1-price" value="0"></div></div>
+        <div class="calc-row"><div class="label">Day 2<small>Banff</small></div><div class="inputs">$<input type="number" step="0.01" id="o2-d2-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 3<small>Lake Louise</small></div><div class="inputs">$<input type="number" step="0.01" id="o2-d3-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 4<small>Banff flex day</small></div><div class="inputs">$<input type="number" step="0.01" id="o2-d4-price" value="24.50"></div></div>
+        <div class="calc-row"><div class="label">Day 5<small>Banff → Kelowna</small></div><div class="inputs">$<input type="number" step="0.01" id="o2-d5-price" value="24.50"></div></div>
         <div class="calc-total"><span>Park pass total</span><span id="o2-parktotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Food</div>
-        <div class="calc-row"><div class="label">Per person, per day<small>Mix of groceries + eating out</small></div>
-          <div class="inputs"><input type="number" id="o2-fooddays" value="5"><span class="unit">days</span>×$<input type="number" id="o2-foodperday" value="55"><span class="unit">/day</span></div></div>
+        <div class="title">Food — per person</div>
+        <div class="calc-row"><div class="label">Breakfast<small>Set days to 0 if eating at the Airbnb to save</small></div>
+          <div class="inputs"><input type="number" id="o2-bfast-days" value="5"><span class="unit">days</span>×$<input type="number" id="o2-bfast-price" value="12"><span class="unit">/day</span></div></div>
+        <div class="calc-row"><div class="label">Lunch</div>
+          <div class="inputs"><input type="number" id="o2-lunch-days" value="5"><span class="unit">days</span>×$<input type="number" id="o2-lunch-price" value="18"><span class="unit">/day</span></div></div>
+        <div class="calc-row"><div class="label">Dinner</div>
+          <div class="inputs"><input type="number" id="o2-dinner-days" value="5"><span class="unit">days</span>×$<input type="number" id="o2-dinner-price" value="25"><span class="unit">/day</span></div></div>
         <div class="calc-total"><span>Food total (4 people)</span><span id="o2-foodtotal">$0</span></div>
       </div>
 
       <div class="calc-block">
-        <div class="title">Activities — per person</div>
-        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o2-act2" value="85"></div></div>
-        <div class="calc-row"><div class="label">Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o2-act3" value="19.75"></div></div>
-        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental, DIY)</div><div class="inputs">$<input type="number" id="o2-act4" value="15"></div></div>
-        <div class="calc-row"><div class="label">Christmas Market snacks/shopping</div><div class="inputs">$<input type="number" id="o2-act5" value="20"></div></div>
-        <div class="calc-total"><span>Activities total (4 people)</span><span id="o2-acttotal">$0</span></div>
+        <div class="title">Entry passes — per person<small style="display:block;font-weight:400;text-transform:none;letter-spacing:0;margin-top:4px;">One row per place from Places to Visit — set to 0 if skipping</small></div>
+        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o2-e1" value="85"></div></div>
+        <div class="calc-row"><div class="label">Banff Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o2-e2" value="19.75"></div></div>
+        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental)</div><div class="inputs">$<input type="number" id="o2-e3" value="15"></div></div>
+        <div class="calc-row"><div class="label">Banff Christmas Market (snacks/shopping)</div><div class="inputs">$<input type="number" id="o2-e4" value="20"></div></div>
+        <div class="calc-row"><div class="label">Lake Louise (skate rental)</div><div class="inputs">$<input type="number" id="o2-e5" value="0"></div></div>
+        <div class="calc-row"><div class="label">Rotary Festival of Trees (Canmore)</div><div class="inputs">$<input type="number" id="o2-e6" value="0"></div></div>
+        <div class="calc-total"><span>Entry passes total (4 people)</span><span id="o2-acttotal">$0</span></div>
       </div>
 
       <div class="grand">
@@ -599,30 +634,32 @@
   function num(id){ return parseFloat(document.getElementById(id).value) || 0; }
   function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
 
-  function calc(prefix, hasJasper){
+  var BUDGET_CONFIG = {
+    'o1': { nights: 5, days: 6, entries: 10 },
+    'o2': { nights: 4, days: 5, entries: 6 }
+  };
+
+  function calc(prefix){
+    var cfg = BUDGET_CONFIG[prefix];
+
     var gas = num(prefix+'-distance')/100 * num(prefix+'-fuel') * num(prefix+'-gasprice');
     document.getElementById(prefix+'-gastotal').textContent = fmt(gas);
 
-    var lodging;
-    if(hasJasper){
-      lodging = num(prefix+'-jnights')*num(prefix+'-jprice') + num(prefix+'-bnights')*num(prefix+'-bprice');
-    } else {
-      lodging = num(prefix+'-bnights')*num(prefix+'-bprice');
-    }
+    var lodging = 0;
+    for(var n=1; n<=cfg.nights; n++){ lodging += num(prefix+'-n'+n+'-price'); }
     document.getElementById(prefix+'-lodgingtotal').textContent = fmt(lodging);
 
-    var park = num(prefix+'-parkdays') * num(prefix+'-parkprice');
+    var park = 0;
+    for(var d=1; d<=cfg.days; d++){ park += num(prefix+'-d'+d+'-price'); }
     document.getElementById(prefix+'-parktotal').textContent = fmt(park);
 
-    var food = num(prefix+'-fooddays') * num(prefix+'-foodperday') * 4;
+    var food = (num(prefix+'-bfast-days')*num(prefix+'-bfast-price')
+              + num(prefix+'-lunch-days')*num(prefix+'-lunch-price')
+              + num(prefix+'-dinner-days')*num(prefix+'-dinner-price')) * 4;
     document.getElementById(prefix+'-foodtotal').textContent = fmt(food);
 
-    var actPerPerson;
-    if(hasJasper){
-      actPerPerson = num(prefix+'-act1') + num(prefix+'-act2') + num(prefix+'-act3') + num(prefix+'-act4') + num(prefix+'-act5');
-    } else {
-      actPerPerson = num(prefix+'-act2') + num(prefix+'-act3') + num(prefix+'-act4') + num(prefix+'-act5');
-    }
+    var actPerPerson = 0;
+    for(var e=1; e<=cfg.entries; e++){ actPerPerson += num(prefix+'-e'+e); }
     var act = actPerPerson * 4;
     document.getElementById(prefix+'-acttotal').textContent = fmt(act);
 
@@ -631,15 +668,15 @@
     document.getElementById(prefix+'-perperson').textContent = fmt(grand/4) + ' / person';
   }
 
-  function wireUp(prefix, hasJasper){
-    document.querySelectorAll('#budget-' + (hasJasper?'1':'2') + ' input').forEach(function(inp){
-      inp.addEventListener('input', function(){ calc(prefix, hasJasper); });
+  function wireUp(prefix, blockId){
+    document.querySelectorAll('#' + blockId + ' input').forEach(function(inp){
+      inp.addEventListener('input', function(){ calc(prefix); });
     });
-    calc(prefix, hasJasper);
+    calc(prefix);
   }
 
-  wireUp('o1', true);
-  wireUp('o2', false);
+  wireUp('o1', 'budget-1');
+  wireUp('o2', 'budget-2');
 </script>
 
 </body>
