@@ -149,8 +149,21 @@
   .area-label:first-child{margin-top:0;}
   .area-label .muted{font-weight:400;color:var(--ink-soft);}
   .checklist{list-style:none;margin:0;padding:0;}
-  .checklist li{padding:7px 0;font-size:0.92rem;display:flex;gap:10px;}
-  .checklist li::before{content:"☐";color:var(--blue);flex-shrink:0;}
+  .checklist li{padding:2px 0;font-size:0.92rem;}
+  .checklist label{display:flex;align-items:flex-start;gap:10px;padding:5px 0;cursor:pointer;}
+  .checklist input[type="checkbox"]{
+    appearance:none;flex-shrink:0;width:18px;height:18px;margin-top:1px;
+    border:1.5px solid var(--ink-soft);border-radius:5px;cursor:pointer;
+    display:grid;place-content:center;
+  }
+  .checklist input[type="checkbox"]::before{
+    content:"";width:10px;height:10px;transform:scale(0);
+    box-shadow:inset 1em 1em var(--blue);
+    clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  .checklist input[type="checkbox"]:checked{border-color:var(--blue);}
+  .checklist input[type="checkbox"]:checked::before{transform:scale(1);}
+  .checklist input[type="checkbox"]:checked + span{color:var(--ink-soft);text-decoration:line-through;}
   h4.subhead{font-size:0.95rem;margin:0 0 10px;}
   .calc-block{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;background:var(--panel);}
   .calc-block .title{font-weight:700;margin-bottom:14px;font-size:1rem;}
@@ -174,14 +187,6 @@
   .grand .r1{font-weight:700;font-size:1.1rem;}
   .grand .r2{color:var(--green);font-weight:700;}
   .disclaimer{color:var(--ink-soft);font-size:0.9rem;margin:6px 0 0;}
-  .notes-box{
-    border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--panel);
-  }
-  .notes-box textarea{
-    width:100%;min-height:160px;border:1px dashed var(--line);border-radius:10px;
-    padding:12px;font-family:inherit;font-size:0.92rem;color:var(--ink);
-    background:var(--paper);resize:vertical;
-  }
   footer{text-align:center;color:var(--ink-soft);font-size:0.85rem;padding-top:44px;margin-top:10px;}
 </style>
 </head>
@@ -190,10 +195,9 @@
 <header class="hero">
   <span class="badge-top">DRAFT PLAN</span>
   <h1>Kelowna → Banff &amp; Jasper</h1>
-  <p class="sub">A December road trip for four, one Mazda 3, and a whole lot of frozen waterfalls.</p>
+  <p class="sub">A December road trip for four, and a whole lot of frozen waterfalls.</p>
   <div class="facts">
     <div class="fact">4 travelers</div>
-    <div class="fact">1 vehicle · 2016 Mazda 3 GS</div>
     <div class="fact">Target: Dec 17–22</div>
   </div>
 </header>
@@ -204,7 +208,6 @@
   <button data-tab="places">Places to Visit</button>
   <button data-tab="budget">Budget</button>
   <button data-tab="prep">Prep Checklist</button>
-  <button data-tab="notes">Notes</button>
 </nav>
 
 <div class="wrap">
@@ -477,68 +480,47 @@
     <h4 class="subhead">Before the trip</h4>
     <div class="card">
       <ul class="checklist">
-        <li>Confirm final dates with everyone (target: Dec 17–22)</li>
-        <li>Book Airbnb(s) in Jasper/Banff</li>
-        <li>Reserve Johnston Canyon / Maligne Canyon icewalk tours (or rent ice cleats)</li>
-        <li>Confirm winter tires installed on the Mazda 3</li>
-        <li>Buy Parks Canada day passes (or decide daily vs annual pass)</li>
-        <li>Assemble car emergency kit: blanket, flashlight, shovel, jumper cables, snacks, water</li>
-        <li>Check vehicle insurance covers winter mountain driving</li>
-        <li>Download offline maps (cell service is spotty on Icefields Parkway)</li>
-        <li>Split budget spreadsheet and agree on payment/reimbursement method</li>
-        <li>Book Banff Gondola / Nightrise tickets in advance</li>
+        <li><label><input type="checkbox"><span>Confirm final dates with everyone (target: Dec 17–22)</span></label></li>
+        <li><label><input type="checkbox"><span>Book Airbnb(s) in Jasper/Banff</span></label></li>
+        <li><label><input type="checkbox"><span>Reserve Johnston Canyon / Maligne Canyon icewalk tours (or rent ice cleats)</span></label></li>
+        <li><label><input type="checkbox"><span>Confirm winter tires installed on the Mazda 3</span></label></li>
+        <li><label><input type="checkbox"><span>Buy Parks Canada day passes (or decide daily vs annual pass)</span></label></li>
+        <li><label><input type="checkbox"><span>Assemble car emergency kit: blanket, flashlight, shovel, jumper cables, snacks, water</span></label></li>
+        <li><label><input type="checkbox"><span>Check vehicle insurance covers winter mountain driving</span></label></li>
+        <li><label><input type="checkbox"><span>Download offline maps (cell service is spotty on Icefields Parkway)</span></label></li>
+        <li><label><input type="checkbox"><span>Split budget spreadsheet and agree on payment/reimbursement method</span></label></li>
+        <li><label><input type="checkbox"><span>Book Banff Gondola / Nightrise tickets in advance</span></label></li>
       </ul>
     </div>
 
     <h4 class="subhead">During the trip</h4>
     <div class="card">
       <ul class="checklist">
-        <li>Check DriveBC / Alberta 511 road & weather conditions each morning</li>
-        <li>Fill gas tank before Icefields Parkway (no services en route)</li>
-        <li>Start long drives early — daylight hours only in winter</li>
-        <li>Keep gas tank at least half full at all times</li>
-        <li>Screenshot emergency numbers / offline maps before losing signal</li>
+        <li><label><input type="checkbox"><span>Check DriveBC / Alberta 511 road & weather conditions each morning</span></label></li>
+        <li><label><input type="checkbox"><span>Fill gas tank before Icefields Parkway (no services en route)</span></label></li>
+        <li><label><input type="checkbox"><span>Start long drives early — daylight hours only in winter</span></label></li>
+        <li><label><input type="checkbox"><span>Keep gas tank at least half full at all times</span></label></li>
+        <li><label><input type="checkbox"><span>Screenshot emergency numbers / offline maps before losing signal</span></label></li>
       </ul>
     </div>
 
     <h4 class="subhead">Packing (per person)</h4>
     <div class="card">
       <ul class="checklist">
-        <li>Warm waterproof winter boots</li>
-        <li>Thermal base layers</li>
-        <li>Insulated jacket + toque + gloves</li>
-        <li>Hand/foot warmers</li>
-        <li>Ice cleats / microspikes (if not on a guided tour)</li>
-        <li>Swimsuit for hot springs</li>
-        <li>Reusable water bottle + snacks for the car</li>
-        <li>Phone charger / car charger</li>
-        <li>Camera</li>
+        <li><label><input type="checkbox"><span>Warm waterproof winter boots</span></label></li>
+        <li><label><input type="checkbox"><span>Thermal base layers</span></label></li>
+        <li><label><input type="checkbox"><span>Insulated jacket + toque + gloves</span></label></li>
+        <li><label><input type="checkbox"><span>Hand/foot warmers</span></label></li>
+        <li><label><input type="checkbox"><span>Ice cleats / microspikes (if not on a guided tour)</span></label></li>
+        <li><label><input type="checkbox"><span>Swimsuit for hot springs</span></label></li>
+        <li><label><input type="checkbox"><span>Reusable water bottle + snacks for the car</span></label></li>
+        <li><label><input type="checkbox"><span>Phone charger / car charger</span></label></li>
+        <li><label><input type="checkbox"><span>Camera</span></label></li>
       </ul>
-    </div>
-  </div>
-
-  <!-- NOTES -->
-  <div class="tabpanel" id="tab-notes">
-    <div class="eyebrow">Discuss</div>
-    <h2>Notes &amp; open questions</h2>
-    <div class="notes-box">
-      <ul class="plain" style="margin-bottom:16px;">
-        <li><b>Route</b>Option 1 (Jasper + Banff) or Option 2 (Banff direct)?</li>
-        <li><b>Dates</b>Confirm everyone's availability for Dec 17–22</li>
-        <li><b>Lodging</b>Anyone found a specific Airbnb worth locking in?</li>
-        <li><b>Vehicle</b>Confirm winter tires are on the Mazda 3</li>
-      </ul>
-      <p style="margin:0 0 8px;font-size:0.85rem;color:var(--ink-soft);">Jot anything else here — send it to Anoki and he'll fold it back into the plan:</p>
-      <textarea placeholder="Type a comment for Anoki to pick up..."></textarea>
     </div>
   </div>
 
 </div>
-
-<footer class="wrap">
-  Draft plan — figures are current estimates. Confirm real prices and dates before booking.<br>
-  Maintained by Anoki — ping him with changes, he'll update this page.
-</footer>
 
 <script>
   // Tab switching
