@@ -3,20 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kelowna → Banff Road Trip — December</title>
+<title>Kelowna → Banff & Jasper — Draft Plan</title>
 <style>
   :root{
-    --ink:      #1b2432;
-    --ink-soft: #5a6472;
-    --paper:    #faf9f6;
+    --ink:      #1a2233;
+    --ink-soft: #667085;
+    --paper:    #f7f7f9;
     --panel:    #ffffff;
-    --line:     #e7e3da;
-    --accent:   #c96f3e;   /* warm rust, like autumn/winter mountain light */
-    --accent-soft: #f6e6da;
-    --pine:     #35594a;   /* deep pine green */
-    --pine-soft:#e4ede9;
-    --frost:    #4a6fa5;   /* cold blue for "open question" tags */
-    --frost-soft:#e5ecf5;
+    --line:     #e6e6ea;
+    --blue:     #3461e0;
+    --blue-soft:#e8edfd;
+    --rust:     #c15b31;
+    --rust-soft:#f7e6dc;
+    --peach:    #fdf1e4;
+    --peach-line:#f0dcc0;
+    --pink:     #fdecec;
+    --pink-line:#f4c9c9;
+    --green:    #1f9d63;
+    --lav:      #f1eefc;
   }
   *{box-sizing:border-box;}
   body{
@@ -26,227 +30,599 @@
     color:var(--ink);
     line-height:1.55;
   }
-  .wrap{max-width:840px;margin:0 auto;padding:0 20px 80px;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px 90px;}
   header.hero{
-    padding:56px 20px 40px;
+    background:linear-gradient(120deg,#dce6fb,#f7e3ee);
+    padding:44px 20px 34px;
     text-align:center;
-    border-bottom:1px solid var(--line);
-    margin-bottom:36px;
+  }
+  .badge-top{
+    display:inline-block;
+    background:rgba(255,255,255,0.75);
+    color:var(--blue);
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:14px;
   }
   header.hero h1{
-    font-size:clamp(1.8rem,4vw,2.6rem);
-    margin:0 0 8px;
+    font-size:clamp(1.7rem,4vw,2.4rem);
+    margin:0 0 10px;
     letter-spacing:-0.02em;
   }
   header.hero p.sub{
     color:var(--ink-soft);
-    font-size:1.05rem;
-    margin:0 0 18px;
+    font-size:1rem;
+    margin:0 0 20px;
   }
-  .facts{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-  }
+  .facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
   .fact{
-    background:var(--panel);
-    border:1px solid var(--line);
+    background:rgba(255,255,255,0.85);
     border-radius:999px;
     padding:6px 16px;
-    font-size:0.88rem;
-    color:var(--ink-soft);
+    font-size:0.85rem;
+    color:var(--ink);
   }
-  .fact b{color:var(--ink);}
-  section{margin-bottom:44px;}
-  h2{
-    font-size:1.3rem;
-    margin:0 0 16px;
-    padding-bottom:8px;
-    border-bottom:2px solid var(--accent);
-    display:inline-block;
+  nav.tabs{
+    display:flex;
+    gap:4px;
+    max-width:820px;
+    margin:0 auto;
+    padding:0 20px;
+    border-bottom:1px solid var(--line);
+    overflow-x:auto;
+    background:var(--panel);
   }
+  nav.tabs button{
+    appearance:none;border:none;background:none;cursor:pointer;
+    font-size:0.9rem;font-weight:600;color:var(--ink-soft);
+    padding:14px 12px 12px;white-space:nowrap;
+    border-bottom:2px solid transparent;
+    font-family:inherit;
+  }
+  nav.tabs button.active{color:var(--ink);border-bottom-color:var(--blue);}
+  .tabpanel{display:none;padding-top:34px;}
+  .tabpanel.active{display:block;}
+  section{margin-bottom:38px;}
+  .eyebrow{
+    color:var(--blue);
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  h2{font-size:1.4rem;margin:0 0 14px;}
+  h3{font-size:1.05rem;margin:0 0 4px;}
   .card{
     background:var(--panel);
     border:1px solid var(--line);
-    border-radius:12px;
-    padding:20px 22px;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:16px;
   }
-  .option-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-  }
-  @media (max-width:640px){ .option-grid{grid-template-columns:1fr;} }
-  .option{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:20px;
-  }
-  .option h3{margin:0 0 6px;font-size:1.05rem;}
-  .option .badge{
+  .badge{
     display:inline-block;
-    background:var(--pine-soft);
-    color:var(--pine);
-    font-size:0.72rem;
-    font-weight:600;
-    padding:3px 10px;
-    border-radius:999px;
+    font-size:0.72rem;font-weight:700;
+    padding:3px 11px;border-radius:999px;
     margin-bottom:10px;
   }
-  .option ul{margin:10px 0 0;padding-left:18px;font-size:0.93rem;color:var(--ink-soft);}
-  .option li{margin-bottom:6px;}
-  .recommend{border-color:var(--pine);box-shadow:0 0 0 1px var(--pine);}
-  table{width:100%;border-collapse:collapse;font-size:0.92rem;}
-  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);}
-  th{color:var(--ink-soft);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;}
-  tr:last-child td{font-weight:700;border-bottom:none;}
-  ul.spots{columns:2;column-gap:30px;padding-left:18px;margin:0;}
-  ul.spots li{margin-bottom:8px;break-inside:avoid;font-size:0.95rem;}
-  @media (max-width:640px){ ul.spots{columns:1;} }
+  .badge.blue{background:var(--blue-soft);color:var(--blue);}
+  .badge.rust{background:var(--rust-soft);color:var(--rust);}
+  .route-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
+  .route-row:last-of-type{border-bottom:none;}
+  .route-row.total{font-weight:700;padding-top:12px;}
+  .route-row span:last-child{color:var(--ink-soft);}
+  .route-row.total span:last-child{color:var(--ink);}
+  .note{border-radius:10px;padding:14px 16px;font-size:0.9rem;margin-top:10px;}
+  .note.peach{background:var(--peach);border:1px solid var(--peach-line);color:#7a4a1e;}
+  .note.pink{background:var(--pink);border:1px solid var(--pink-line);color:#8a2e2e;}
+  ul.plain{margin:0;padding:0;list-style:none;}
+  ul.plain li{padding:9px 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
+  ul.plain li:last-child{border-bottom:none;}
+  ul.plain li b{display:block;}
+  .daylist{display:flex;flex-direction:column;gap:0;}
+  .day{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .day:last-child{border-bottom:none;}
+  .day .num{color:var(--blue);font-weight:700;font-size:0.8rem;flex-shrink:0;width:56px;}
+  .day .content h3{margin-bottom:8px;}
+  .day ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:0.92rem;}
+  .day li{margin-bottom:4px;}
+  .toggle-row{display:flex;gap:8px;margin-bottom:20px;}
+  .toggle-row button{
+    appearance:none;border:1px solid var(--line);background:var(--panel);
+    border-radius:999px;padding:8px 16px;font-size:0.85rem;font-weight:600;
+    cursor:pointer;color:var(--ink-soft);font-family:inherit;
+  }
+  .toggle-row button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .option-block{display:none;}
+  .option-block.active{display:block;}
+  .spot{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .spot:last-child{border-bottom:none;}
+  .spot .tag{
+    flex-shrink:0;height:22px;padding:0 10px;border-radius:999px;
+    font-size:0.7rem;font-weight:700;display:flex;align-items:center;color:#fff;
+  }
+  .spot .tag.banff{background:var(--blue);}
+  .spot .tag.jasper{background:var(--rust);}
+  .spot .body b{display:block;font-size:0.95rem;}
+  .spot .body p{margin:2px 0 0;color:var(--ink-soft);font-size:0.88rem;}
+  .area-label{font-weight:700;margin:26px 0 10px;font-size:0.95rem;}
+  .area-label:first-child{margin-top:0;}
+  .area-label .muted{font-weight:400;color:var(--ink-soft);}
   .checklist{list-style:none;margin:0;padding:0;}
-  .checklist li{
-    padding:9px 0;
-    border-bottom:1px solid var(--line);
-    font-size:0.95rem;
-    display:flex;
-    gap:10px;
-  }
+  .checklist li{padding:9px 0;border-bottom:1px solid var(--line);font-size:0.92rem;display:flex;gap:10px;}
   .checklist li:last-child{border-bottom:none;}
-  .checklist li::before{content:"☐";color:var(--accent);flex-shrink:0;}
-  .notes-list{list-style:none;margin:0;padding:0;}
-  .notes-list li{
-    padding:12px 14px;
-    background:var(--frost-soft);
-    border-left:3px solid var(--frost);
-    border-radius:6px;
-    margin-bottom:10px;
-    font-size:0.93rem;
+  .checklist li::before{content:"☐";color:var(--blue);flex-shrink:0;}
+  h4.subhead{font-size:0.95rem;margin:0 0 10px;}
+  .calc-block{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;background:var(--panel);}
+  .calc-block .title{font-weight:700;margin-bottom:14px;font-size:1rem;}
+  .calc-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:0.9rem;}
+  .calc-row:last-of-type{border-bottom:none;}
+  .calc-row .label{flex:1;}
+  .calc-row .label small{display:block;color:var(--ink-soft);font-size:0.78rem;}
+  .calc-row .inputs{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .calc-row input{
+    width:64px;border:1px solid var(--line);border-radius:8px;
+    padding:6px 8px;font-size:0.88rem;text-align:right;font-family:inherit;
+    background:var(--paper);
   }
-  .notes-list li b{color:var(--frost);display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:3px;}
-  footer{
-    text-align:center;
-    color:var(--ink-soft);
-    font-size:0.85rem;
-    padding-top:30px;
-    border-top:1px solid var(--line);
+  .calc-row .unit{color:var(--ink-soft);font-size:0.82rem;width:56px;}
+  .calc-total{display:flex;justify-content:space-between;font-weight:700;padding-top:12px;margin-top:4px;border-top:1px solid var(--line);}
+  .grand{
+    background:var(--lav);border-radius:14px;padding:20px 22px;
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;
   }
+  .grand .l1{font-weight:700;font-size:1.05rem;}
+  .grand .l2{font-size:0.85rem;color:var(--ink-soft);}
+  .grand .r1{font-weight:700;font-size:1.1rem;}
+  .grand .r2{color:var(--green);font-weight:700;}
+  .disclaimer{color:var(--ink-soft);font-size:0.9rem;margin:6px 0 0;}
+  .notes-box{
+    border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--panel);
+  }
+  .notes-box textarea{
+    width:100%;min-height:160px;border:1px dashed var(--line);border-radius:10px;
+    padding:12px;font-family:inherit;font-size:0.92rem;color:var(--ink);
+    background:var(--paper);resize:vertical;
+  }
+  footer{text-align:center;color:var(--ink-soft);font-size:0.85rem;padding-top:34px;border-top:1px solid var(--line);margin-top:10px;}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <h1>Kelowna → Banff Road Trip</h1>
-  <p class="sub">December 2026 · planning notes for the four of us</p>
+  <span class="badge-top">DRAFT PLAN</span>
+  <h1>Kelowna → Banff &amp; Jasper</h1>
+  <p class="sub">A December road trip for four, one Mazda 3, and a whole lot of frozen waterfalls.</p>
   <div class="facts">
-    <div class="fact">📅 Targeting <b>Dec 15–21</b></div>
-    <div class="fact">🧍 <b>4 people</b>, 1 vehicle</div>
-    <div class="fact">💰 Target ~<b>$900/person</b></div>
-    <div class="fact">🚗 From <b>Kelowna, BC</b></div>
+    <div class="fact">4 travelers</div>
+    <div class="fact">1 vehicle · 2016 Mazda 3 GS</div>
+    <div class="fact">Target: Dec 17–22</div>
   </div>
 </header>
 
+<nav class="tabs" id="tabnav">
+  <button class="active" data-tab="overview">Overview</button>
+  <button data-tab="itinerary">Itinerary</button>
+  <button data-tab="places">Places to Visit</button>
+  <button data-tab="budget">Budget</button>
+  <button data-tab="prep">Prep Checklist</button>
+  <button data-tab="notes">Notes</button>
+</nav>
+
 <div class="wrap">
 
-  <section>
-    <h2>Route: pick one</h2>
-    <div class="option-grid">
-      <div class="option recommend">
-        <span class="badge">Leaning this way</span>
-        <h3>Option 2 — Kelowna → Banff direct</h3>
-        <ul>
-          <li>~830 km each way via Hwy 1 (Rogers Pass)</li>
-          <li>5–7 days, base out of Banff/Canmore</li>
-          <li>More time actually at destinations, less driving fatigue</li>
-          <li>Banff/Lake Louise stay fully open &amp; active in winter</li>
+  <!-- OVERVIEW -->
+  <div class="tabpanel active" id="tab-overview">
+    <section>
+      <div class="eyebrow">Route Options</div>
+      <h2>Two ways to do it</h2>
+      <p class="disclaimer" style="margin-bottom:16px;">Both start and end in Kelowna. Option 1 adds Jasper and the Icefields Parkway; Option 2 keeps it simple with more time in one place.</p>
+
+      <div class="card">
+        <span class="badge blue">Option 1</span>
+        <h3>Kelowna → Jasper → Banff → Kelowna</h3>
+        <div class="route-row"><span>Kelowna → Jasper</span><span>652 km · ~7.5–8.5 hrs</span></div>
+        <div class="route-row"><span>Jasper → Banff (Icefields Pkwy)</span><span>288 km · ~5 hrs</span></div>
+        <div class="route-row"><span>Banff → Kelowna</span><span>480 km · ~6.5–7 hrs</span></div>
+        <div class="route-row total"><span>Total driving</span><span>~1,420 km</span></div>
+        <div class="note peach">6 days / 5 nights — 2 in Jasper, 3 in Banff. Sees both parks, but two long winter driving days.</div>
+      </div>
+
+      <div class="card">
+        <span class="badge rust">Option 2</span>
+        <h3>Kelowna → Banff only</h3>
+        <div class="route-row"><span>Kelowna → Banff</span><span>480 km · ~6.5–7 hrs</span></div>
+        <div class="route-row"><span>Banff → Kelowna</span><span>480 km · ~6.5–7 hrs</span></div>
+        <div class="route-row total"><span>Total driving</span><span>~960 km</span></div>
+        <div class="note peach">5 days / 4 nights, all in Banff/Lake Louise. More relaxed, cheaper, less winter-driving risk.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Timing</div>
+      <h2>Suggested dates</h2>
+      <div class="card">
+        <p style="margin:0 0 10px;font-size:0.92rem;">Peak pricing hits hard from <b>Dec 20 – Jan 2</b> (Christmas / New Year's). The window right after Dec 15 is the sweet spot before that surge.</p>
+        <p style="margin:0;font-weight:700;font-size:0.95rem;">Suggested: Thu Dec 17 – Tue Dec 22, 2026 — adjust once everyone confirms availability.</p>
+        <div class="note pink">Book Airbnbs and any guided icewalk tours (Johnston Canyon / Maligne Canyon) as soon as dates lock — both sell out and rise in price closer to the date.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Good to Know</div>
+      <h2>Winter driving reality check</h2>
+      <div class="card">
+        <ul class="plain">
+          <li>Snow tires or chains are mandatory on the Icefields Parkway Nov 1 – Apr 1</li>
+          <li>No gas stations on the Icefields Parkway in winter — fill up fully first</li>
+          <li>Parkway maintenance runs 7am–3:30pm — plan to be off it before dark</li>
+          <li><b>Moraine Lake Road is closed to vehicles Oct–June (avalanche risk) on both options</b></li>
         </ul>
       </div>
-      <div class="option">
-        <span class="badge" style="background:var(--accent-soft);color:var(--accent);">Bigger trip</span>
-        <h3>Option 1 — Kelowna → Jasper → Banff loop</h3>
-        <ul>
-          <li>~610 km to Jasper, then ~290 km Icefields Pkwy to Banff</li>
-          <li>7–9 days, more ground covered</li>
-          <li>Some Jasper attractions closed for winter (SkyTram, Glacier Centre, Miette Hot Springs)</li>
-          <li>Adds a second mountain pass with avalanche-closure risk</li>
-        </ul>
+    </section>
+  </div>
+
+  <!-- ITINERARY -->
+  <div class="tabpanel" id="tab-itinerary">
+    <div class="eyebrow">Day by Day</div>
+    <h2>Itinerary</h2>
+    <div class="toggle-row" id="itin-toggle">
+      <button class="active" data-opt="1">Option 1 · Jasper + Banff</button>
+      <button data-opt="2">Option 2 · Banff only</button>
+    </div>
+
+    <div class="card option-block active" id="itin-1">
+      <div class="daylist">
+        <div class="day"><div class="num">DAY 1</div><div class="content"><h3>Kelowna → Jasper</h3><ul>
+          <li>Depart early (7–8am) — 652 km, ~7.5–8.5 hrs with stops</li>
+          <li>Fill up on gas before leaving; check winter tires</li>
+          <li>Arrive Jasper evening, check into Airbnb, easy dinner</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 2</div><div class="content"><h3>Jasper</h3><ul>
+          <li>Morning: Maligne Canyon Ice Walk (guided, ~4 hrs, book ahead)</li>
+          <li>Afternoon: ice skating at Pyramid Lake or Mildred Lake</li>
+          <li>Evening: dinner in Jasper townsite</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 3</div><div class="content"><h3>Jasper → Banff via Icefields Parkway</h3><ul>
+          <li>Full tank before leaving — no services en route</li>
+          <li>Depart by 8am — 288 km, ~5 hrs with photo stops (Athabasca Falls, Sunwapta Falls, Columbia Icefield)</li>
+          <li>Arrive Banff early afternoon, settle in</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 4</div><div class="content"><h3>Banff</h3><ul>
+          <li>Banff Gondola + Nightrise evening experience</li>
+          <li>Banff Upper Hot Springs</li>
+          <li>Evening: Banff Christmas Market at the train station</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 5</div><div class="content"><h3>Banff / Lake Louise</h3><ul>
+          <li>Johnston Canyon Icewalk (guided or DIY with rented ice cleats)</li>
+          <li>Afternoon: Lake Louise village + frozen lake / skating</li>
+          <li>Rotary Festival of Trees, if still running</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 6</div><div class="content"><h3>Banff → Kelowna</h3><ul>
+          <li>Depart morning, 480 km, ~6.5–7 hrs</li>
+          <li>Check road conditions before leaving</li>
+        </ul></div></div>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2>Budget (per person, Option 2 estimate)</h2>
-    <div class="card">
-      <table>
-        <tr><th>Category</th><th>Per person</th><th>Notes</th></tr>
-        <tr><td>Gas</td><td>$75–90</td><td>~1,860 km round trip, split 4 ways</td></tr>
-        <tr><td>Lodging (Airbnb)</td><td>$300–325</td><td>5–6 nights, Canmore or Banff</td></tr>
-        <tr><td>Food</td><td>$250–300</td><td>Mix of cooking + eating out</td></tr>
-        <tr><td>Park pass</td><td>~$42</td><td>Discovery Pass, covers all 4 in the vehicle</td></tr>
-        <tr><td>Activities</td><td>$100–150</td><td>Gondola, hot springs, ice walk</td></tr>
-        <tr><td>Contingency</td><td>$50–75</td><td>Buffer</td></tr>
-        <tr><td>Total</td><td>~$820–980</td><td>~$3,300–3,900 for the group</td></tr>
-      </table>
+    <div class="card option-block" id="itin-2">
+      <div class="daylist">
+        <div class="day"><div class="num">DAY 1</div><div class="content"><h3>Kelowna → Banff</h3><ul>
+          <li>Depart early (7–8am) — 480 km, ~6.5–7 hrs with stops</li>
+          <li>Fill up on gas before leaving; check winter tires</li>
+          <li>Arrive Banff evening, check into Airbnb, easy dinner</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 2</div><div class="content"><h3>Banff</h3><ul>
+          <li>Banff Gondola + Nightrise evening experience</li>
+          <li>Banff Upper Hot Springs</li>
+          <li>Evening: Banff Christmas Market at the train station</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 3</div><div class="content"><h3>Lake Louise</h3><ul>
+          <li>Johnston Canyon Icewalk (guided or DIY with rented ice cleats)</li>
+          <li>Afternoon: Lake Louise village + frozen lake / skating</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 4</div><div class="content"><h3>Banff — flex day</h3><ul>
+          <li>Rotary Festival of Trees, if still running</li>
+          <li>Downtown Banff Ave — shops, dinner, catch-up on anything missed</li>
+          <li>Buffer day in case of weather delays</li>
+        </ul></div></div>
+        <div class="day"><div class="num">DAY 5</div><div class="content"><h3>Banff → Kelowna</h3><ul>
+          <li>Depart morning, 480 km, ~6.5–7 hrs</li>
+          <li>Check road conditions before leaving</li>
+        </ul></div></div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section>
+  <!-- PLACES TO VISIT -->
+  <div class="tabpanel" id="tab-places">
+    <div class="eyebrow">Highlights</div>
     <h2>Must-see spots</h2>
-    <div class="card">
-      <ul class="spots">
-        <li><b>Lake Louise</b> — frozen lake, skating rink, snowshoe trails</li>
-        <li><b>Moraine Lake Road</b> — usually closed to cars in winter, check status</li>
-        <li><b>Johnston Canyon Icewalk</b> — frozen waterfalls</li>
-        <li><b>Banff Gondola</b> — Sulphur Mountain views above the snow line</li>
-        <li><b>Banff Upper Hot Springs</b> — outdoor hot springs, mountain views</li>
-        <li><b>Downtown Banff Ave</b> — dinner, shops, holiday lights</li>
-        <li><b>Bow Falls / Surprise Corner / Vermilion Lakes</b> — easy scenic stops</li>
-        <li><b>Canmore</b> — quieter/cheaper base, Grassi Lakes trail</li>
-      </ul>
-    </div>
-  </section>
 
-  <section>
-    <h2>Before the trip</h2>
+    <div class="area-label">Banff area</div>
+    <div class="card">
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Gondola / Nightrise</b><p>Ride up Sulphur Mountain; evening light-and-sound winter experience at the top.</p></div></div>
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Upper Hot Springs</b><p>Outdoor mineral hot springs with mountain views — great after a cold day outside. ~$19.75/adult.</p></div></div>
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Johnston Canyon Icewalk</b><p>Frozen waterfalls and ice formations along a canyon trail, ~25 km from Banff. Guided tours include cleats/poles/transport.</p></div></div>
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Banff Christmas Market</b><p>Held at the historic train station — local artisans, hot cocoa, holiday atmosphere.</p></div></div>
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Lake Louise</b><p>Frozen lake, ice skating rink, Chateau Lake Louise. Moraine Lake Rd is closed to cars in winter.</p></div></div>
+      <div class="spot"><span class="tag banff">Banff</span><div class="body"><b>Rotary Festival of Trees</b><p>Community holiday event with decorated trees, wreaths, gingerbread houses.</p></div></div>
+    </div>
+
+    <div class="area-label">Jasper area <span class="muted">(Option 1 only)</span></div>
+    <div class="card">
+      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Maligne Canyon Ice Walk</b><p>Guided walk into a frozen canyon among ice sculptures and mid-flow frozen waterfalls.</p></div></div>
+      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Pyramid / Mildred Lake skating</b><p>Some of the best-maintained outdoor rinks in the Rockies, with mountain backdrops.</p></div></div>
+      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Athabasca & Sunwapta Falls</b><p>Partially frozen waterfalls, easy short stops along the Icefields Parkway.</p></div></div>
+      <div class="spot"><span class="tag jasper">Jasper</span><div class="body"><b>Marmot Basin</b><p>Local ski hill if anyone wants a ski/snowboard day.</p></div></div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="tabpanel" id="tab-budget">
+    <div class="eyebrow">Cost Estimate</div>
+    <h2>Budget calculator</h2>
+    <p class="disclaimer" style="margin-bottom:16px;">Placeholder figures based on typical current rates — everything below is editable and totals update live. Assumes 4 people, 1 vehicle, costs split evenly.</p>
+
+    <div class="toggle-row" id="budget-toggle">
+      <button class="active" data-opt="1">Option 1</button>
+      <button data-opt="2">Option 2</button>
+    </div>
+
+    <!-- OPTION 1 BUDGET -->
+    <div class="option-block active" id="budget-1">
+      <div class="calc-block">
+        <div class="title">⛽ Gas</div>
+        <div class="calc-row"><div class="label">Total driving distance<small>Kelowna–Jasper–Banff–Kelowna + local</small></div>
+          <div class="inputs"><input type="number" id="o1-distance" value="1520"><span class="unit">km</span></div></div>
+        <div class="calc-row"><div class="label">Fuel use, winter real-world</div>
+          <div class="inputs"><input type="number" step="0.1" id="o1-fuel" value="7.5"><span class="unit">L/100km</span></div></div>
+        <div class="calc-row"><div class="label">Gas price, BC + AB blended</div>
+          <div class="inputs">$<input type="number" step="0.01" id="o1-gasprice" value="1.75"><span class="unit">/L</span></div></div>
+        <div class="calc-total"><span>Gas total</span><span id="o1-gastotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🏠 Lodging</div>
+        <div class="calc-row"><div class="label">Jasper</div>
+          <div class="inputs"><input type="number" id="o1-jnights" value="2"><span class="unit">nights</span>×$<input type="number" id="o1-jprice" value="220"><span class="unit">/night</span></div></div>
+        <div class="calc-row"><div class="label">Banff</div>
+          <div class="inputs"><input type="number" id="o1-bnights" value="3"><span class="unit">nights</span>×$<input type="number" id="o1-bprice" value="300"><span class="unit">/night</span></div></div>
+        <div class="calc-total"><span>Lodging total</span><span id="o1-lodgingtotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🎫 Park pass</div>
+        <div class="calc-row"><div class="label">Days in park<small>Group/family day pass covers all 4 in one vehicle</small></div>
+          <div class="inputs"><input type="number" id="o1-parkdays" value="5"><span class="unit">days</span>×$<input type="number" step="0.01" id="o1-parkprice" value="24.50"><span class="unit">/day</span></div></div>
+        <div class="calc-total"><span>Park pass total</span><span id="o1-parktotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🍽️ Food</div>
+        <div class="calc-row"><div class="label">Per person, per day<small>Mix of groceries + eating out</small></div>
+          <div class="inputs"><input type="number" id="o1-fooddays" value="6"><span class="unit">days</span>×$<input type="number" id="o1-foodperday" value="55"><span class="unit">/day</span></div></div>
+        <div class="calc-total"><span>Food total (4 people)</span><span id="o1-foodtotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🎿 Activities — per person</div>
+        <div class="calc-row"><div class="label">Maligne Canyon Ice Walk</div><div class="inputs">$<input type="number" id="o1-act1" value="85"></div></div>
+        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o1-act2" value="85"></div></div>
+        <div class="calc-row"><div class="label">Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o1-act3" value="19.75"></div></div>
+        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental, DIY)</div><div class="inputs">$<input type="number" id="o1-act4" value="15"></div></div>
+        <div class="calc-row"><div class="label">Christmas Market snacks/shopping</div><div class="inputs">$<input type="number" id="o1-act5" value="20"></div></div>
+        <div class="calc-total"><span>Activities total (4 people)</span><span id="o1-acttotal">$0</span></div>
+      </div>
+
+      <div class="grand">
+        <div><div class="l1">Grand total (group of 4)</div><div class="l2">Per person</div></div>
+        <div style="text-align:right;"><div class="r1" id="o1-grand">$0</div><div class="r2" id="o1-perperson">$0 / person</div></div>
+      </div>
+    </div>
+
+    <!-- OPTION 2 BUDGET -->
+    <div class="option-block" id="budget-2">
+      <div class="calc-block">
+        <div class="title">⛽ Gas</div>
+        <div class="calc-row"><div class="label">Total driving distance<small>Kelowna–Banff–Kelowna + local</small></div>
+          <div class="inputs"><input type="number" id="o2-distance" value="1060"><span class="unit">km</span></div></div>
+        <div class="calc-row"><div class="label">Fuel use, winter real-world</div>
+          <div class="inputs"><input type="number" step="0.1" id="o2-fuel" value="7.5"><span class="unit">L/100km</span></div></div>
+        <div class="calc-row"><div class="label">Gas price, BC + AB blended</div>
+          <div class="inputs">$<input type="number" step="0.01" id="o2-gasprice" value="1.75"><span class="unit">/L</span></div></div>
+        <div class="calc-total"><span>Gas total</span><span id="o2-gastotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🏠 Lodging</div>
+        <div class="calc-row"><div class="label">Banff</div>
+          <div class="inputs"><input type="number" id="o2-bnights" value="4"><span class="unit">nights</span>×$<input type="number" id="o2-bprice" value="300"><span class="unit">/night</span></div></div>
+        <div class="calc-total"><span>Lodging total</span><span id="o2-lodgingtotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🎫 Park pass</div>
+        <div class="calc-row"><div class="label">Days in park<small>Group/family day pass covers all 4 in one vehicle</small></div>
+          <div class="inputs"><input type="number" id="o2-parkdays" value="4"><span class="unit">days</span>×$<input type="number" step="0.01" id="o2-parkprice" value="24.50"><span class="unit">/day</span></div></div>
+        <div class="calc-total"><span>Park pass total</span><span id="o2-parktotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🍽️ Food</div>
+        <div class="calc-row"><div class="label">Per person, per day<small>Mix of groceries + eating out</small></div>
+          <div class="inputs"><input type="number" id="o2-fooddays" value="5"><span class="unit">days</span>×$<input type="number" id="o2-foodperday" value="55"><span class="unit">/day</span></div></div>
+        <div class="calc-total"><span>Food total (4 people)</span><span id="o2-foodtotal">$0</span></div>
+      </div>
+
+      <div class="calc-block">
+        <div class="title">🎿 Activities — per person</div>
+        <div class="calc-row"><div class="label">Banff Gondola + Nightrise</div><div class="inputs">$<input type="number" id="o2-act2" value="85"></div></div>
+        <div class="calc-row"><div class="label">Upper Hot Springs</div><div class="inputs">$<input type="number" step="0.01" id="o2-act3" value="19.75"></div></div>
+        <div class="calc-row"><div class="label">Johnston Canyon (ice cleat rental, DIY)</div><div class="inputs">$<input type="number" id="o2-act4" value="15"></div></div>
+        <div class="calc-row"><div class="label">Christmas Market snacks/shopping</div><div class="inputs">$<input type="number" id="o2-act5" value="20"></div></div>
+        <div class="calc-total"><span>Activities total (4 people)</span><span id="o2-acttotal">$0</span></div>
+      </div>
+
+      <div class="grand">
+        <div><div class="l1">Grand total (group of 4)</div><div class="l2">Per person</div></div>
+        <div style="text-align:right;"><div class="r1" id="o2-grand">$0</div><div class="r2" id="o2-perperson">$0 / person</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREP CHECKLIST -->
+  <div class="tabpanel" id="tab-prep">
+    <div class="eyebrow">Get Ready</div>
+    <h2>Prep checklist</h2>
+
+    <h4 class="subhead">Before the trip</h4>
     <div class="card">
       <ul class="checklist">
-        <li>Confirm winter tires on the vehicle (mandatory on BC mountain highways Nov 1–Apr 1)</li>
-        <li>Book Airbnb (Dec fills up faster than expected)</li>
-        <li>Book hot springs / ice walk tickets in advance</li>
-        <li>Buy Parks Canada pass online ahead of time</li>
-        <li>Pack an emergency kit — blanket, snacks, water, phone charger, shovel</li>
-        <li>Check attraction winter hours before locking the itinerary</li>
+        <li>Confirm final dates with everyone (target: Dec 17–22)</li>
+        <li>Book Airbnb(s) in Jasper/Banff</li>
+        <li>Reserve Johnston Canyon / Maligne Canyon icewalk tours (or rent ice cleats)</li>
+        <li>Confirm winter tires installed on the Mazda 3</li>
+        <li>Buy Parks Canada day passes (or decide daily vs annual pass)</li>
+        <li>Assemble car emergency kit: blanket, flashlight, shovel, jumper cables, snacks, water</li>
+        <li>Check vehicle insurance covers winter mountain driving</li>
+        <li>Download offline maps (cell service is spotty on Icefields Parkway)</li>
+        <li>Split budget spreadsheet and agree on payment/reimbursement method</li>
+        <li>Book Banff Gondola / Nightrise tickets in advance</li>
       </ul>
     </div>
-  </section>
 
-  <section>
-    <h2>During the trip</h2>
+    <h4 class="subhead">During the trip</h4>
     <div class="card">
       <ul class="checklist">
-        <li>Check DriveBC / 511 Alberta each driving morning (Rogers Pass avalanche control)</li>
-        <li>Build in one flex day with no driving in case of weather</li>
-        <li>Keep the gas tank above half through the mountain sections</li>
+        <li>Check DriveBC / Alberta 511 road & weather conditions each morning</li>
+        <li>Fill gas tank before Icefields Parkway (no services en route)</li>
+        <li>Start long drives early — daylight hours only in winter</li>
+        <li>Keep gas tank at least half full at all times</li>
+        <li>Screenshot emergency numbers / offline maps before losing signal</li>
       </ul>
     </div>
-  </section>
 
-  <section>
-    <h2>Open questions</h2>
-    <ul class="notes-list">
-      <li><b>Route</b>Option 1 (Jasper + Banff) or Option 2 (Banff direct)?</li>
-      <li><b>Dates</b>Exact departure/return within Dec 15–21?</li>
-      <li><b>Base</b>Canmore vs Banff townsite as home base?</li>
-      <li><b>Vehicle</b>Confirm winter tires / AWD?</li>
-    </ul>
-  </section>
+    <h4 class="subhead">Packing (per person)</h4>
+    <div class="card">
+      <ul class="checklist">
+        <li>Warm waterproof winter boots</li>
+        <li>Thermal base layers</li>
+        <li>Insulated jacket + toque + gloves</li>
+        <li>Hand/foot warmers</li>
+        <li>Ice cleats / microspikes (if not on a guided tour)</li>
+        <li>Swimsuit for hot springs</li>
+        <li>Reusable water bottle + snacks for the car</li>
+        <li>Phone charger / car charger</li>
+        <li>Camera</li>
+      </ul>
+    </div>
+  </div>
 
-  <footer>
-    Maintained by Anoki — ping him with changes, he'll update this page.<br>
-    Last updated: July 25, 2026
-  </footer>
+  <!-- NOTES -->
+  <div class="tabpanel" id="tab-notes">
+    <div class="eyebrow">Discuss</div>
+    <h2>Notes &amp; open questions</h2>
+    <div class="notes-box">
+      <ul class="plain" style="margin-bottom:16px;">
+        <li><b>Route</b>Option 1 (Jasper + Banff) or Option 2 (Banff direct)?</li>
+        <li><b>Dates</b>Confirm everyone's availability for Dec 17–22</li>
+        <li><b>Lodging</b>Anyone found a specific Airbnb worth locking in?</li>
+        <li><b>Vehicle</b>Confirm winter tires are on the Mazda 3</li>
+      </ul>
+      <p style="margin:0 0 8px;font-size:0.85rem;color:var(--ink-soft);">Jot anything else here — send it to Anoki and he'll fold it back into the plan:</p>
+      <textarea placeholder="Type a comment for Anoki to pick up..."></textarea>
+    </div>
+  </div>
 
 </div>
+
+<footer class="wrap">
+  Draft plan — figures are current estimates. Confirm real prices and dates before booking.<br>
+  Maintained by Anoki — ping him with changes, he'll update this page.
+</footer>
+
+<script>
+  // Tab switching
+  document.getElementById('tabnav').addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#tabnav button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var tab = btn.dataset.tab;
+    document.querySelectorAll('.tabpanel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('tab-' + tab).classList.add('active');
+  });
+
+  // Itinerary option toggle
+  document.getElementById('itin-toggle').addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#itin-toggle button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('#tab-itinerary .option-block').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('itin-' + btn.dataset.opt).classList.add('active');
+  });
+
+  // Budget option toggle
+  document.getElementById('budget-toggle').addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#budget-toggle button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('#tab-budget .option-block').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('budget-' + btn.dataset.opt).classList.add('active');
+  });
+
+  function num(id){ return parseFloat(document.getElementById(id).value) || 0; }
+  function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+
+  function calc(prefix, hasJasper){
+    var gas = num(prefix+'-distance')/100 * num(prefix+'-fuel') * num(prefix+'-gasprice');
+    document.getElementById(prefix+'-gastotal').textContent = fmt(gas);
+
+    var lodging;
+    if(hasJasper){
+      lodging = num(prefix+'-jnights')*num(prefix+'-jprice') + num(prefix+'-bnights')*num(prefix+'-bprice');
+    } else {
+      lodging = num(prefix+'-bnights')*num(prefix+'-bprice');
+    }
+    document.getElementById(prefix+'-lodgingtotal').textContent = fmt(lodging);
+
+    var park = num(prefix+'-parkdays') * num(prefix+'-parkprice');
+    document.getElementById(prefix+'-parktotal').textContent = fmt(park);
+
+    var food = num(prefix+'-fooddays') * num(prefix+'-foodperday') * 4;
+    document.getElementById(prefix+'-foodtotal').textContent = fmt(food);
+
+    var actPerPerson;
+    if(hasJasper){
+      actPerPerson = num(prefix+'-act1') + num(prefix+'-act2') + num(prefix+'-act3') + num(prefix+'-act4') + num(prefix+'-act5');
+    } else {
+      actPerPerson = num(prefix+'-act2') + num(prefix+'-act3') + num(prefix+'-act4') + num(prefix+'-act5');
+    }
+    var act = actPerPerson * 4;
+    document.getElementById(prefix+'-acttotal').textContent = fmt(act);
+
+    var grand = gas + lodging + park + food + act;
+    document.getElementById(prefix+'-grand').textContent = fmt(grand);
+    document.getElementById(prefix+'-perperson').textContent = fmt(grand/4) + ' / person';
+  }
+
+  function wireUp(prefix, hasJasper){
+    document.querySelectorAll('#budget-' + (hasJasper?'1':'2') + ' input').forEach(function(inp){
+      inp.addEventListener('input', function(){ calc(prefix, hasJasper); });
+    });
+    calc(prefix, hasJasper);
+  }
+
+  wireUp('o1', true);
+  wireUp('o2', false);
+</script>
+
 </body>
 </html>
